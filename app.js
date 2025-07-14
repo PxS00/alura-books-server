@@ -1,14 +1,13 @@
-const express = require("express")
+const express = require('express')
+const routeBook = require('./routes/book')
 
 const app = express()
 
+app.use('/livros', routeBook)
+
 const port = 8000
 
-app.get('/', (req, res) => {
-    res.send('Hello World')
-})
-
-app.listen(port, () => {
+app.listen(port, () =>  {
     console.log(`Server is running on port ${port}`)
 })
 
