@@ -47,7 +47,7 @@ function patchBook(req, res){
     }
 }
 
-function deleteBook(res, req){
+function deleteBook(req, res){
     try {
         const id = req.params.id
         deleteBookId(id)
