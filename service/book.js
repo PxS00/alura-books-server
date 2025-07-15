@@ -9,7 +9,6 @@ function getBooksId(id){
     const filteredBook = books.filter(book => book.id === id) [0]
     
     return filteredBook
-    
 }
 
 function insertBook(newBook){
@@ -28,13 +27,19 @@ function modifyBook(modifications, id){
     currentBooks[modifiedIndex] = contentChanged
 
     fs.writeFileSync('books.json', JSON.stringify(currentBooks))
+}
 
+function deleteBookId(id){
+    let books = JSON.parse(fs.readFileSync('books.json'))
+    const filteredBook = books.filter(book => book.id !== id) [0]
 
+    fs.writeFileSync('books.json', JSON.stringify(filteredBook))
 }
 
 module.exports = {
     getAllBooks,
     getBooksId,
     insertBook,
-    modifyBook
+    modifyBook,
+    deleteBookId
 }
