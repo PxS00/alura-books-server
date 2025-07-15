@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const {getBooks} = require('../controllers/book')
+const { getBooks } = require('../controllers/book')
 
 const router = Router()
 
@@ -16,4 +16,5 @@ router.patch('/', (req, res) => {
 router.delete('/', (req, res) => {
     res.send('Você fez uma requisição do tipo DELETE')
 })
+
 module.exports = router
