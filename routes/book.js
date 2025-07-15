@@ -1,9 +1,9 @@
 const { Router } = require('express')
-const {getBook} = require('../controllers/book')
+const {getBooks} = require('../controllers/book')
 
 const router = Router()
 
-router.get('/', getBook) 
+router.get('/', getBooks) 
 
 router.post('/', (req, res) => {
     res.send('Você fez uma requisição do tipo POST')
