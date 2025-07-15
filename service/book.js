@@ -1,45 +1,45 @@
-const fs = require('fs')
+const fs = require('fs');
 
-function getAllBooks(){
-    return JSON.parse(fs.readFileSync('books.json'))
+function getAllBooks() {
+  return JSON.parse(fs.readFileSync('books.json'));
 }
 
-function getBooksId(id){
-    const books = JSON.parse(fs.readFileSync('books.json'))
-    const filteredBook = books.filter(book => book.id === id) [0]
-    
-    return filteredBook
+function getBooksId(id) {
+  const books = JSON.parse(fs.readFileSync('books.json'));
+  const filteredBook = books.filter((book) => book.id === id)[0];
+
+  return filteredBook;
 }
 
-function insertBook(newBook){
-    const books = JSON.parse(fs.readFileSync('books.json'))
-    const newBookList = [...books, newBook]
+function insertBook(newBook) {
+  const books = JSON.parse(fs.readFileSync('books.json'));
+  const newBookList = [...books, newBook];
 
-    fs.writeFileSync('books.json', JSON.stringify(newBookList))
+  fs.writeFileSync('books.json', JSON.stringify(newBookList));
 }
 
-function modifyBook(modifications, id){
-    let currentBooks = JSON.parse(fs.readFileSync('books.json'))
-    const modifiedIndex = currentBooks.findIndex(book => book.id === id)
+function modifyBook(modifications, id) {
+  const currentBooks = JSON.parse(fs.readFileSync('books.json'));
+  const modifiedIndex = currentBooks.findIndex((book) => book.id === id);
 
-    const contentChanged = {...currentBooks[modifiedIndex], ...modifications}
+  const contentChanged = { ...currentBooks[modifiedIndex], ...modifications };
 
-    currentBooks[modifiedIndex] = contentChanged
+  currentBooks[modifiedIndex] = contentChanged;
 
-    fs.writeFileSync('books.json', JSON.stringify(currentBooks))
+  fs.writeFileSync('books.json', JSON.stringify(currentBooks));
 }
 
-function deleteBookId(id){
-    const books = JSON.parse(fs.readFileSync('books.json'))
-    const filteredBook = books.filter(book => book.id !== id)
+function deleteBookId(id) {
+  const books = JSON.parse(fs.readFileSync('books.json'));
+  const filteredBook = books.filter((book) => book.id !== id);
 
-    fs.writeFileSync('books.json', JSON.stringify(filteredBook))
+  fs.writeFileSync('books.json', JSON.stringify(filteredBook));
 }
 
 module.exports = {
-    getAllBooks,
-    getBooksId,
-    insertBook,
-    modifyBook,
-    deleteBookId
-}
+  getAllBooks,
+  getBooksId,
+  insertBook,
+  modifyBook,
+  deleteBookId,
+};

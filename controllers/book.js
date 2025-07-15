@@ -1,4 +1,10 @@
-const { getAllBooks, getBooksId, insertBook, modifyBook, deleteBookId} = require('../service/book')
+const {
+  getAllBooks,
+  getBooksId,
+  insertBook,
+  modifyBook,
+  deleteBookId,
+} = require('../service/book');
 
 function getBooks(req, res) {
   try {
@@ -20,11 +26,11 @@ function getBook(req, res) {
         res.send(book);
       } else {
         res.status(404);
-        res.send("Livro não encontrado");
+        res.send('Livro não encontrado');
       }
     } else {
       res.status(422);
-      res.send("Id inválido");
+      res.send('Id inválido');
     }
   } catch (error) {
     res.status(500);
@@ -35,14 +41,14 @@ function getBook(req, res) {
 function postBook(req, res) {
   try {
     const newBook = req.body;
-    if(req.body.nome && req.body.id){
-        insertBook(newBook);
-        res.status(201);
-        res.send("Livro inserido com sucesso");
-    }else{
-        res.status(422)
-        res.send('O campo nome e id são obrigatórios')
-    }   
+    if (req.body.nome && req.body.id) {
+      insertBook(newBook);
+      res.status(201);
+      res.send('Livro inserido com sucesso');
+    } else {
+      res.status(422);
+      res.send('O campo nome e id são obrigatórios');
+    }
   } catch (error) {
     res.status(500);
     res.send(error.message);
@@ -58,14 +64,14 @@ function patchBook(req, res) {
       if (book) {
         const body = req.body;
         modifyBook(body, id);
-        res.send("Item modificado com sucesso");
+        res.send('Item modificado com sucesso');
       } else {
         res.status(404);
-        res.send("Livro não encontrado");
+        res.send('Livro não encontrado');
       }
     } else {
       res.status(422);
-      res.send("Id inválido");
+      res.send('Id inválido');
     }
   } catch (error) {
     res.status(500);
@@ -81,14 +87,14 @@ function deleteBook(req, res) {
       const book = getBooksId(id);
       if (book) {
         deleteBookId(id);
-        res.send("Item deletado com sucesso");
+        res.send('Item deletado com sucesso');
       } else {
         res.status(404);
-        res.send("Livro não encontrado");
+        res.send('Livro não encontrado');
       }
     } else {
       res.status(422);
-      res.send("Id inválido");
+      res.send('Id inválido');
     }
   } catch (error) {
     res.status(500);
