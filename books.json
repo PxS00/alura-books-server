@@ -1,6 +1,6 @@
 [
-  { "id": "3", "nome": "Livro mais que demais" },
-  { "id": "4", "nome": "Livro tri legal" },
-  { "id": "5", "nome": "Livro mais demais do mundo" },
-  { "id": "6", "nome": "Livro iradíssimo mais que demais" }
+  { "id": "3", "name": "Livro mais que demais" },
+  { "id": "4", "name": "Livro tri legal" },
+  { "id": "5", "name": "Livro mais demais do mundo" },
+  { "id": "6", "name": "Livro iradíssimo mais que demais" }
 ]
